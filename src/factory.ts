@@ -1,7 +1,7 @@
 import { FlatConfigComposer, type Awaitable } from 'eslint-flat-config-utils'
 import type { TypedFlatConfigItem } from './types'
 
-import { typescript, vue, type TypescriptOptionsFile } from './configs'
+import { imports, typescript, vue, type TypescriptOptionsFile } from './configs'
 
 export interface FactoryOptions {
   ts?: TypescriptOptionsFile
@@ -15,6 +15,8 @@ export function katonlabs(options: FactoryOptions = {}): FlatConfigComposer {
   configs.push(typescript(ts))
   // vue config
   configs.push(vue())
+  // import config
+  configs.push(imports())
 
   let composer = new FlatConfigComposer()
 
