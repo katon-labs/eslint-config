@@ -19,6 +19,8 @@ export function katonlabs(options: FactoryOptions = {}): FlatConfigComposer {
   configs.push(imports())
   // unicorn config
   configs.push(unicorn())
+  // perfectionist
+  configs.push(perfectionist())
 
   let composer = new FlatConfigComposer()
 
