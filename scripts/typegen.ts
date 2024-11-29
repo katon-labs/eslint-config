@@ -5,6 +5,7 @@ import pluginImports from 'eslint-plugin-import-x'
 import pluginUnicorn from 'eslint-plugin-unicorn'
 import pluginPerfectionist from 'eslint-plugin-perfectionist'
 import pluginNode from 'eslint-plugin-n'
+import pluginStylistic from '@stylistic/eslint-plugin'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
 
 const dts = await pluginsToRulesDTS({
@@ -13,7 +14,8 @@ const dts = await pluginsToRulesDTS({
   'import': pluginImports,
   'unicorn': pluginUnicorn,
   'perfectionist': pluginPerfectionist,
-  'node': pluginNode
+  'node': pluginNode,
+  '@stylistic': pluginStylistic
 })
 
 await fs.writeFile('src/typegen.d.ts', dts)
