@@ -1,7 +1,7 @@
 {
   "name": "@katon-labs/eslint-config",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "bun@1.1.27",
   "description": "Katon Labs's ESLint config",
   "author": "Alam Esa Wikanning Katon <naturaatom@gmail.com> (https://github.com/wikanonymous-dev/)",
@@ -21,15 +21,19 @@
     "dist"
   ],
   "scripts": {
+    "build": "bun typegen && tsup --format esm,cjs --clean --dts",
     "typegen": "esno scripts/typegen.ts",
-    "dev": "npx @eslint/config-inspector --config eslint.config.ts"
+    "dev": "npx @eslint/config-inspector --config eslint.config.ts",
+    "release": "bumpp && bun publish"
   },
   "devDependencies": {
     "@eslint/config-inspector": "^0.5.6",
     "@types/bun": "latest",
+    "bumpp": "^9.8.1",
     "eslint": "^9.15.0",
     "eslint-typegen": "^0.3.2",
-    "esno": "^4.8.0"
+    "esno": "^4.8.0",
+    "tsup": "^8.3.5"
   },
   "peerDependencies": {
     "typescript": "^5.7.2"
