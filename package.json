@@ -1,5 +1,5 @@
 {
-  "name": "@katon-labs/eslint-config",
+  "name": "katon-labs-eslint-config",
   "type": "module",
   "version": "0.0.2",
   "packageManager": "bun@1.1.27",
@@ -24,7 +24,7 @@
     "build": "bun typegen && tsup --format esm,cjs --clean --dts",
     "typegen": "esno scripts/typegen.ts",
     "dev": "npx @eslint/config-inspector --config eslint.config.ts",
-    "release": "bumpp && bun publish"
+    "release": "bumpp & npm publish"
   },
   "devDependencies": {
     "@eslint/config-inspector": "^0.5.6",
@@ -49,5 +49,8 @@
     "eslint-plugin-unicorn": "^56.0.1",
     "eslint-plugin-vue": "^9.31.0",
     "vue-eslint-parser": "^9.4.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
