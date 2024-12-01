@@ -1,7 +1,7 @@
 {
   "name": "katon-labs-eslint-config",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "packageManager": "bun@1.1.27",
   "description": "Katon Labs's ESLint config",
   "author": "Alam Esa Wikanning Katon <naturaatom@gmail.com> (https://github.com/wikanonymous-dev/)",
