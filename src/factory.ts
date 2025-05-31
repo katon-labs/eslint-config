@@ -2,12 +2,13 @@ import { FlatConfigComposer, type Awaitable } from 'eslint-flat-config-utils'
 import type { TypedFlatConfigItem } from './types'
 
 import { ignores, imports, node, perfectionist, stylistic, typescript, unicorn, vue, type TypescriptOptionsFile } from './configs'
+import type { Linter } from 'eslint'
 
 export interface FactoryOptions {
   ts?: TypescriptOptionsFile
 }
 
-export function katonlabs(options: FactoryOptions = {}): FlatConfigComposer {
+export function katonlabs(options: FactoryOptions = {}, ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | Linter.Config[]>[]): FlatConfigComposer {
   const { ts } = options
   const configs: Awaitable<TypedFlatConfigItem[]>[] = []
 
@@ -31,7 +32,10 @@ export function katonlabs(options: FactoryOptions = {}): FlatConfigComposer {
   let composer = new FlatConfigComposer()
 
   composer
-    .append(...configs)
+    .append(
+      ...configs,
+      ...userConfigs as any
+    )
   
   return composer
 }
