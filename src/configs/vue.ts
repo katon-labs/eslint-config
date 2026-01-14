@@ -51,14 +51,6 @@ export function vue(): TypedFlatConfigItem[] {
       name: 'katon-labs/vue/rules',
       languageOptions: {
         parser: parserVue,
-        parserOptions: {
-          ecmaFeatures: {
-            jsx: true,
-          },
-          extraFileExtensions: ['.vue'],
-          parser: parserTS,
-          sourceType: 'module',
-        },
       },
       processor: pluginVue.processors['.vue'],
       rules: {
