@@ -4,6 +4,8 @@ import parserTS from '@typescript-eslint/parser'
 import type { TypedFlatConfigItem } from "../types";
 import { GLOB_VUE } from '../globs';
 
+const INLINE_ELEMENTS = ['a', 'abbr', 'audio', 'b', 'bdi', 'bdo', 'canvas', 'cite', 'code', 'data', 'del', 'dfn', 'em', 'i', 'iframe', 'ins', 'kbd', 'label', 'map', 'mark', 'noscript', 'object', 'output', 'picture', 'q', 'ruby', 's', 'samp', 'small', 'span', 'strong', 'sub', 'sup', 'svg', 'time', 'u', 'var', 'video']
+
 export function vue(): TypedFlatConfigItem[] {
   const files = [GLOB_VUE]
   const indent = 2
@@ -17,6 +19,15 @@ export function vue(): TypedFlatConfigItem[] {
       // This allows Vue plugin to work with auto imports
       // https://github.com/vuejs/eslint-plugin-vue/pull/2422
       languageOptions: {
+        parserOptions: {
+          ecmaVersion: 'latest',
+          extraFileExtensions: ['.vue'],
+          parser: parserTS,
+          sourceType: 'module',
+          ecmaFeatures: {
+            jsx: true,
+          },
+        },
         globals: {
           computed: 'readonly',
           defineEmits: 'readonly',
