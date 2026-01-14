@@ -149,6 +149,17 @@ export function vue(): TypedFlatConfigItem[] {
         'vue/quote-props': ['error', 'consistent-as-needed'],
         'vue/space-in-parens': ['error', 'never'],
         'vue/template-curly-spacing': 'error',
+        'vue/multiline-html-element-content-newline': ['error', {
+          ignoreWhenEmpty: true,
+          ignores: ['pre', 'textarea', 'router-link', 'RouterLink', 'nuxt-link', 'NuxtLink', 'u-link', 'ULink', ...INLINE_ELEMENTS],
+          allowEmptyLines: false,
+        }],
+        'vue/singleline-html-element-content-newline': ['error', {
+          ignoreWhenNoAttributes: true,
+          ignoreWhenEmpty: true,
+          ignores: ['pre', 'textarea', 'router-link', 'RouterLink', 'nuxt-link', 'NuxtLink', 'u-link', 'ULink', ...INLINE_ELEMENTS],
+          externalIgnores: [],
+        }],
       }
     }
   ]

@@ -137,9 +137,6 @@ export function typescript(options?: TypescriptOptionsFile): TypedFlatConfigItem
         '@typescript-eslint/method-signature-style': ['error', 'property'],
         '@typescript-eslint/no-dynamic-delete': 'off',
         '@typescript-eslint/no-empty-object-type': ['error', { allowInterfaces: 'always' }],
-        '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/no-duplicate-type-constituents': 'error',
-
       }
     },
   ]
