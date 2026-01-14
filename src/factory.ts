@@ -13,7 +13,7 @@ export function katonlabs(options: FactoryOptions = {}, ...userConfigs: Awaitabl
   const configs: Awaitable<TypedFlatConfigItem[]>[] = []
 
   // typescript config
-  configs.push(typescript(ts))
+  configs.push(typescript(ts ? ts : undefined))
   // vue config
   configs.push(vue())
   // import config
@@ -36,6 +36,6 @@ export function katonlabs(options: FactoryOptions = {}, ...userConfigs: Awaitabl
       ...configs,
       ...userConfigs as any
     )
-  
+
   return composer
 }
